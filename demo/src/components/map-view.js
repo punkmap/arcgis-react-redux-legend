@@ -48,9 +48,14 @@ class MapUi extends React.PureComponent {
       }),
       padding: { right: 280 }
     });
-
+    
+    view.on('click', function(e){
+      console.log('quit clicking me e.x: ' + e.x);
+      console.log('quit clicking me e.y: ' + e.y);
+      console.log('quit clicking me mapPoint: ' + JSON.stringify(e.mapPoint));
+    })
     // calling this initialises the legend control
-    initLegend(view, mapId);
+    //initLegend(view, mapId);
 
     layer3.when(function(lyr) {
       view.goTo(lyr.fullExtent);
@@ -70,7 +75,6 @@ class MapUi extends React.PureComponent {
       }),
       padding: { right: 280 }
     });
-
     view.map.portalItem.when((portalItem) => {
       this.setState({ title: portalItem.title });
     });
@@ -105,7 +109,7 @@ class MapUi extends React.PureComponent {
         modulesToLoad={modules}    
         onReady={webMapId ? this.loadWebmap : this.loadMap}
       >
-        <MapLegend className='thirtyPercent' mapId={mapId} title={title} />
+        
       </EsriLoaderReact>
     );
   }
