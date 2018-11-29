@@ -19,7 +19,7 @@ class MapUi extends React.PureComponent {
     return results === null ? null : decodeURIComponent(results[1].replace(/\+/g, ' '));
   };
 
-  loadMap = ({loadedModules: [Map, View, MapImageLayer, FeatureLayer], containerNode}) => {
+  loadMap = ({loadedModules: [ESRIMap, SceneView, MapImageLayer, FeatureLayer], containerNode}) => {
 
     //const { mapId} = this.props;
     
@@ -40,13 +40,12 @@ class MapUi extends React.PureComponent {
       url: 'https://services2.arcgis.com/j80Jz20at6Bi0thr/arcgis/rest/services/HawaiiLavaFlowHazardZones/FeatureServer/0'
     });*/
 
-    const view = new View({
+    const view = new SceneView({
       container: containerNode,
-      map: new Map({
-        basemap: 'topo',
-        //layers: [layer1, layer2, layer3, layer4]
-      }),
-      padding: { right: 280 }
+      map: new ESRIMap({
+        basemap: 'satellite',
+        ground: 'world-elevation'
+      })
     });
     
     view.on('click', function(e){
@@ -91,8 +90,8 @@ class MapUi extends React.PureComponent {
 
     const modules = webMapId
       ? [
-          'esri/Map',
-          'esri/views/MapView',
+          'esri/ESRIMap',
+          'esri/views/SceneView',
           'esri/WebMap',
         ]
       : [
