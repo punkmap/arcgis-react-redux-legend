@@ -41,6 +41,8 @@ class MapUi extends React.PureComponent {
     });
     
     view.on('click', function(e){
+      //TODO: 1. get elevation reference and lat lon coordinate
+      //TODO: 2. create web3.js token at click coordinates and elevation 
       console.log('quit clicking me mapPoint: ' + JSON.stringify(e.mapPoint));
     }) 
   }
