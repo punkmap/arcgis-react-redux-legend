@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import EsriLoaderReact from 'esri-loader-react';
-//import { MapLegend, setInitialLegend } from '../../../src/';
 import isWebGLEnabled from 'is-webgl-enabled';
 import isMobile from 'is-mobile';
 
@@ -20,25 +19,6 @@ class MapUi extends React.PureComponent {
   };
 
   loadMap = ({loadedModules: [ESRIMap, SceneView, MapImageLayer, FeatureLayer], containerNode}) => {
-
-    //const { mapId} = this.props;
-    
-    /*const layer1 = new MapImageLayer({
-      url: 'https://sampleserver6.arcgisonline.com/arcgis/rest/services/RedlandsEmergencyVehicles/MapServer'
-    });
-
-    const layer2 = new MapImageLayer({
-      url: 'https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer',
-      visible: false
-    });
-
-    const layer3 = new MapImageLayer({
-      url: 'https://sampleserver6.arcgisonline.com/arcgis/rest/services/Hurricanes/MapServer'
-    });
-
-    const layer4 = new FeatureLayer({
-      url: 'https://services2.arcgis.com/j80Jz20at6Bi0thr/arcgis/rest/services/HawaiiLavaFlowHazardZones/FeatureServer/0'
-    });*/
 
     const view = new SceneView({
       container: containerNode,
@@ -61,21 +41,11 @@ class MapUi extends React.PureComponent {
     });
     
     view.on('click', function(e){
-      console.log('quit clicking me e.x: ' + e.x);
-      console.log('quit clicking me e.y: ' + e.y);
       console.log('quit clicking me mapPoint: ' + JSON.stringify(e.mapPoint));
-    })
-    // calling this initialises the legend control
-    //initLegend(view, mapId);
-
-    // layer3.when(function(lyr) {
-    //   view.goTo(lyr.fullExtent);
-    // });  
+    }) 
   }
 
   loadWebmap = ({loadedModules: [Map, MapView, WebMap], containerNode}) => {
-
-    //const { mapId, initLegend } = this.props;
 
     const view = new MapView({
       container: containerNode,
@@ -90,8 +60,6 @@ class MapUi extends React.PureComponent {
       this.setState({ title: portalItem.title });
     });
 
-    // calling this initialises the legend control
-    //initLegend(view, mapId); 
   }
 
   render() {
