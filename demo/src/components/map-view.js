@@ -46,6 +46,18 @@ class MapUi extends React.PureComponent {
         basemap: 'satellite',
         ground: 'world-elevation'
       })
+      , camera : {
+          position: {
+            x: -9188342.28,
+            y: 4244395.33,
+            z: 823,
+            spatialReference: {
+              wkid: 3857
+            }
+          },
+          heading: 280,
+          tilt: 77.5
+        }
     });
     
     view.on('click', function(e){
