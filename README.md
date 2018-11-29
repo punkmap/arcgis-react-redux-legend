@@ -1,10 +1,5 @@
-# ArcGIS JS API V4 Legend
+# 3D Scene in React
 
-[![npm](https://img.shields.io/npm/v/arcgis-react-redux-legend.svg)](https://www.npmjs.com/package/arcgis-react-redux-legend)
- 
-Combined legend and layer list control for the ArcGIS JS API V4.6+ that uses React and Redux
- 
-![legend gif](legend.gif)
 
 ### Run locally
 
